@@ -1,0 +1,39 @@
+application: gae-static-pages
+version: 2
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+
+- url: /(.+)
+  static_files: public/\1
+  upload: public/(.*)
+
+- url: /
+  static_files: public/index.html
+  upload: public/index.html
+
+skip_files:
+- ^(.*/)?app\.yaml
+- ^(.*/)?app\.yml
+- ^(.*/)?#.*#
+- ^(.*/)?.*~
+- ^(.*/)?.*\.py[co]
+- ^(.*/)?.*/RCS/.*
+- ^(.*/)?\..*
+- ^(.*/)?tests$
+- ^(.*/)?test$
+- ^test/(.*/)?
+- ^COPYING.LESSER
+- ^README\..*
+- \.gitignore
+- ^\.git/.*
+- \.*\.lint$
+- ^fabfile\.py
+- ^testrunner\.py
+- ^grunt\.js
+- ^node_modules/(.*/)?
+- ^posts/(.*/)?
+- ^src/(.*/)?
+- ^samples/(.*/)?
